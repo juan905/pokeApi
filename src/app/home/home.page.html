@@ -1,0 +1,64 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Pokemon list
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col size="6">
+        <ion-button color="success" (click)="previousPage()">Before</ion-button>
+      </ion-col>
+  
+      <ion-col size="6">
+        <ion-button color="success" (click)="nextPage()" [disabled]="( pokemons | filter:page).length == 0">Next</ion-button>
+      </ion-col>
+  
+    </ion-row>
+  </ion-grid>
+
+  <ion-toolbar color="medium" class="margin">
+    <ion-grid>
+      <!--Table head-->
+      <ion-row>
+        <ion-col size="4">
+          <div>#</div>
+        </ion-col>
+        <ion-col size="4">
+          <div>Pokemon</div>
+        </ion-col>
+        <ion-col size="4">
+          <div>Img</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+
+  <ion-grid>
+    <!--Table body-->
+    <ion-row *ngFor="let pokemon of pokemons | filter:page">
+      <ion-col size="4">
+        <div>{{pokemon.id}}</div>
+      </ion-col>
+      <ion-col size="4">
+        <div>{{pokemon.name}}</div>
+      </ion-col>
+      <ion-col size="4">
+        <img [src]="pokemon.img" alt="">
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+
+  <div class="ion-text-center alert" *ngIf=" (pokemons | filter:page).length == 0">
+    <p>The are no Pokemons</p>
+  </div>
+
+   
+
+</ion-content>
