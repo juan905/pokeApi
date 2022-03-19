@@ -29,13 +29,14 @@ export class PokemonService {
    */
 
   private transformPokemonData(resp: FetchAllPokemonResponse): Pokemon[]{
-   //It brings the data what I want to show in the screen
-   const pokemonList: Pokemon[] = resp.results.map(pokemon => {
-
+    //It brings the data what I want to show in the screen
+    const pokemonList: Pokemon[] = resp.results.map(pokemon => {
+      
     //It segments the response in positions
      const pokeArray = pokemon.url.split('/');
      const id = pokeArray[6];
-     const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${id}.png`
+     const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`;
+     
 
     return{
       id,

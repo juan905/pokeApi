@@ -1,4 +1,6 @@
+import { PokemonPage } from './modals/pokemon/pokemon.page';
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Pokemon } from './interfaces/pokemon.interface';
 import { PokemonService } from './services/pokemon.service';
 
@@ -24,7 +26,7 @@ export class HomePage {
 
 
 
-  constructor(private pokemonService: PokemonService) {
+  constructor(private pokemonService: PokemonService, public modalController: ModalController) {
     this.pokemonService.getPokemons()
         .subscribe(pokemons =>{
         
@@ -56,6 +58,17 @@ export class HomePage {
       }
 
 
+      async infoPokemon(id:string, name: string, img: string) {
+        const modal = await this.modalController.create({
+          component: PokemonPage,
+          componentProps: {
+            id,
+            name, 
+            img
+          },
+          cssClass: 'my-custom-class'
+        });
+        return await modal.present();
+      }
+    }
 
-      
-}

@@ -48,7 +48,7 @@
         <div>{{pokemon.name}}</div>
       </ion-col>
       <ion-col size="4">
-        <img [src]="pokemon.img" alt="">
+        <img [src]="pokemon.img" alt="" (click)="infoPokemon(pokemon.id, pokemon.name, pokemon.img)" >
       </ion-col>
     </ion-row>
   </ion-grid>

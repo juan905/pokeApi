@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>pokemon</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+<ion-grid>
+
+  <ion-row>
+    <ion-col size="12">
+      <h1 class="ion-text-center">{{name}}</h1>
+    </ion-col>
+  </ion-row>
+
+  <ion-row>
+    <ion-col size="12">
+    <ion-img [src]="img"></ion-img>
+    </ion-col>
+  </ion-row>
+
+  
+</ion-grid>
+
+  
+</ion-content>
+
+<ion-button color="danger" (click)="closeModal()" class="expand">Close modal</ion-button>
