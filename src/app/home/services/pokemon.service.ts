@@ -36,7 +36,6 @@ export class PokemonService {
      const pokeArray = pokemon.url.split('/');
      const id = pokeArray[6];
      const img = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`;
-     
 
     return{
       id,

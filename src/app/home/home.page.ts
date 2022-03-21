@@ -58,6 +58,10 @@ export class HomePage {
       }
 
 
+      /**
+       * Modal which shows the info of each pokemon
+       */
+
       async infoPokemon(id:string, name: string, img: string) {
         const modal = await this.modalController.create({
           component: PokemonPage,
